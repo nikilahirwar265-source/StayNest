@@ -1,0 +1,34 @@
+<% layout('../layouts/boilerplate.ejs') %>
+
+    <body>
+
+        <% if(products.length> 0) { %>
+            <div class="container">
+                <% for(product of products) {%>
+                    <div>
+                        <a href="/listing/<%= product.id %>" class="link">
+                            <img src="<%= product.image.url %>" alt="image" width="200" class="img-link">
+                            <%= product.title %>
+                                <br>
+                                <p>&#8377; <%= product.price.toLocaleString("en-IN") %> for 2 nights
+                                </p>
+                        </a>
+                    </div>
+                    <% } %>
+                        <% } else { %>
+                            <div class="no-results">
+
+                                <h2><i class="fa-solid fa-face-sad-tear"></i>
+                                    <b>No Listings Found</b>
+                                </h2>
+
+
+
+                                <p>
+                                    Try searching a different location
+                                    or changing filters.
+                                </p>
+
+                            </div>
+                            <% } %>
+    </body>

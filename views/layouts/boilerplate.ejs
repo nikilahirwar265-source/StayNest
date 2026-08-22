@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wunderlust</title>
+    <!-- link add for css file -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/rating.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/filter.css">
+    <link rel="stylesheet" href="/css/menu.css">
+    <link rel="stylesheet" href="/css/Autherization.css">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- add cdn link and you can use icons on font awosome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- this link to add bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+
+<body class="body">
+    <div class="nav-bar d-flex">
+        <a href="/listing/"><i class="fa-regular fa-compass airbnb-icon"></i></a>
+        <a href="/listing/" class="nav-link">Explore</a>
+        <div class="nav-link">
+            <a href="/listing/add/data" class="p-2 become-a-host">Become a host</a>
+        </div>
+        <form action="/search/" method="GET" class="d-flex search  " role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="location" />
+            <button class="btn  btn-danger" type="submit">Search</button>
+        </form>
+        <div class="menu p-2 " id="menu-bar">
+            <i class="fa-solid fa-bars menu-icon"></i>
+        </div>
+    </div>
+
+    <div class="menu-container" id="menu-Container">
+        <div class=""><a href="/listing/add/data" class="p-2"><b>Become a host</b></a>
+            <p class="host"> It's easy to start hosting and earn extra income.</p>
+            <hr>
+        </div>
+
+        <% if(!isLoggedIn){ %>
+
+            <div class="signUp">
+                <a href="/user/signup" class="p-2  "><b>SignUp</b></a><br>
+                <hr>
+            </div>
+
+            <div><a href="/user/login" class="p-2"><b>Login</b></a></div>
+            <% }else{ %>
+                <div class="ms-auto logout-container">
+                    <a href="/user/logout" class="logout">Logout<i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+
+                </div>
+                <%} %>
+    </div>
+    <!-- menu js file sarve -->
+    <script src="/js/menu.js"></script>
+    <main><%- include('../layouts/flash.ejs') %>
+            <%- body %></main> <!-- yaha page ka content aayega -->
+    <%- include('../layouts/footer.ejs') %>
+        <!-- this link is scrip for bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

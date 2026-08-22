@@ -1,0 +1,58 @@
+<% layout('../layouts/boilerplate.ejs') %>
+
+    <body>
+
+        <div class="form-container">
+            <form method="post" action="/listing/update/data/?_method=PATCH&id=<%= data.id %>" class="needs-validation"
+                novalidate>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Title:</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="title"
+                        value="<%= data.title %>" required>
+                    <div class="invalid-feedback">
+                        Please Enter the Title.</div>
+                    <div class="valid-feedback">
+                        Looks good!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea2" class="form-label">The description:</label>
+                    <textarea class="form-control textarea" id="exampleFormControlTextarea2" rows="3" name="description"
+                        required><%= data.description %></textarea>
+                    <div class="invalid-feedback">
+                        Please add some description</div>
+                    <div class="valid-feedback">
+                        Looks good!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput3" class="form-label"> Price:</label>
+                    <input type="number" class="form-control" id="exampleFormControlInput3" name="price"
+                        value="<%= data.price %>" required>
+                    <div class="invalid-feedback">
+                        vaild price in number.</div>
+                    <div class="valid-feedback">
+                        Looks good!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput4" class="form-label">Location:</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput4" name="location"
+                        value="<%= data.location %>" required>
+                    <div class="invalid-feedback">
+                        correct location name.</div>
+                    <div class="valid-feedback">
+                        Looks good!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput5" class="form-label">Country name:</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput5" name="country"
+                        value="<%= data.country %>" required>
+                    <div class="invalid-feedback">
+                        Enter the country name.</div>
+                    <div class="valid-feedback">
+                        Looks good!</div>
+                </div>
+                <button class="update-btn">update data</button>
+
+            </form>
+        </div>
+        <script src="/js/validationForm.js"></script>
+    </body>

@@ -1,0 +1,128 @@
+ /* nab-bar responsive */
+ @media(max-width:768px) {
+     .become-a-host {
+         visibility: hidden;
+     }
+ }
+
+ .search {
+     position: fixed;
+     right: 70px;
+     width: 400px;
+
+ }
+
+ @media(max-width:768px) {
+     .search {
+         width: 280px;
+         margin-left: 20px;
+     }
+ }
+
+ @media(max-width:344px) {
+     .search {
+         width: 220px;
+     }
+
+     .airbnb-icon {
+         position: fixed;
+         right: 90%;
+         top: 4.5%;
+
+         margin-top: 0px;
+     }
+ }
+
+ @media screen and (min-width:355px) and (max-width:365px) {
+     .search {
+         width: 240px;
+
+
+     }
+
+     .nav-link {
+         visibility: hidden;
+     }
+
+     .airbnb-icon {
+         font-size: 1.7rem;
+         position: fixed;
+         right: 90%;
+         top: 5%;
+
+         margin-top: 0px;
+     }
+ }
+
+ @media screen and (min-width:370px) and (max-width:378px) {
+     .search {
+         width: 240px;
+     }
+
+     .nav-link {
+         visibility: hidden;
+     }
+
+     .airbnb-icon {
+         font-size: 1.7rem;
+         position: fixed;
+         right: 90%;
+         top: 6%;
+         margin-top: 0px;
+     }
+ }
+
+ @media screen and (min-width:410px) and (max-width:415px) {
+     .nav-link {
+         visibility: hidden;
+     }
+
+     .airbnb-icon {
+         position: absolute;
+         right: 90%;
+         top: 38%;
+
+     }
+ }
+
+ @media screen and (min-width:410px) and (max-width:415px) {
+     .nav-link {
+         visibility: hidden;
+     }
+
+     .airbnb-icon {
+         position: absolute;
+         right: 90%;
+         top: 38%;
+
+     }
+ }
+
+ @media screen and (min-width:380px) and (max-width:395px) {
+     .search {
+         width: 260px;
+
+     }
+
+     .nav-link {
+         visibility: hidden;
+     }
+
+     .airbnb-icon {
+         position: absolute;
+         right: 90%;
+         top: 38%;
+
+     }
+ }
+
+
+ .btn-danger {
+     box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .me-2 {
+     border: 1px solid #ddd;
+     box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.1);
+     border-radius: 10px;
+ }

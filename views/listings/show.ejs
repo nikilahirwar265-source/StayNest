@@ -1,0 +1,83 @@
+<% layout('../layouts/boilerplate.ejs') %>
+
+    <body>
+        <div class="filters" id="filtersContainer">
+            <div class="filter">
+                <i class="fa-solid fa-umbrella-beach"></i>
+                <p>beach</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-tree"></i>
+                <p>Comping</p>
+            </div>
+            <div class="filter">
+                <i class="fa-regular fa-snowflake"></i>
+                <p>Arctic</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-person-skiing"></i>
+                <p>Skiing</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-gem"></i>
+                <p>Lux</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-mountain"></i>
+                <p>Countryside</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-fire"></i>
+                <p>Trending</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-sailboat"></i>
+                <p>Boats</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-house-flood-water"></i>
+                <p>Cabins</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-dungeon"></i>
+                <p>Castles</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-water-ladder"></i>
+                <p>Amazing pools</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-holly-berry"></i>
+                <p>Mansions</p>
+            </div>
+            <div class="filter">
+                <i class="fa-solid fa-bezier-curve"></i>
+                <p>Design</p>
+            </div>
+            <div class="greater-than " id="scrollBtn">
+                <i class="fa-solid fa-greater-than"></i>
+            </div>
+        </div>
+
+
+        <!-- for surve filter js file -->
+        <script src="/js/filter.js"> </script>
+
+
+        <div class="container">
+            <% for(data of allData) {%>
+                <div>
+                    <a href="/listing/<%= data.id %>" class="link">
+                        <img src="<%= data.image.url %>" alt="image" width="200" class="img-link">
+                        <%= data.title %>
+                            <br>
+                            <p>&#8377; <%= data.price.toLocaleString("en-IN") %> for 2 nights
+                            </p>
+                    </a>
+                </div>
+
+                <% } %>
+        </div>
+
+
+    </body>

@@ -1,0 +1,94 @@
+<% layout('../layouts/boilerplate.ejs') %>
+
+    <body id="signUp">
+
+        <div class="outer-SignUp-container">
+
+            <div class="inner-SignUp-container">
+
+                <h2 class="signup-heading">Wunderlust SignUp</h2>
+
+                <% if (error && error.length> 0) { %>
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        <%= error %>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <% } %>
+
+                        <form method="post" action="/user/signup" class="needs-validation" novalidate>
+
+                            <!-- Username -->
+                            <div class="mb-3">
+                                <label for="exampleInput" class="form-label">
+                                    <b>Username</b>
+                                </label>
+
+                                <input type="text" class="form-control" id="exampleInput" name="username"
+                                    placeholder="Enter username" required>
+
+                                <div class="invalid-feedback">
+                                    Please add your username.
+                                </div>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">
+                                    <b>Password</b>
+                                </label>
+
+                                <input type="password" class="form-control" id="exampleInputPassword1" name="password"
+                                    placeholder="Create password" required>
+
+                                <div class="invalid-feedback">
+                                    Create the password.
+                                </div>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="mb-4">
+                                <label for="exampleInputEmail1" class="form-label">
+                                    <b>Email Address</b>
+                                </label>
+
+                                <input type="email" class="form-control" id="exampleInputEmail1" name="email"
+                                    placeholder="Enter email" required>
+
+                                <div class="invalid-feedback">
+                                    Please enter a valid email.
+                                </div>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-success signup-btn">
+                                Sign Up
+                            </button>
+
+
+                            <!-- Login Redirect -->
+                            <div class="login-option">
+                                Already have an account?
+                                <a href="/user/login">Login</a>
+                            </div>
+
+                        </form>
+
+            </div>
+
+        </div>
+
+        <script src="/js/validationForm.js">
+        </script>
+
+    </body>
