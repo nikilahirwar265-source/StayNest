@@ -31,26 +31,35 @@ app.use(methodOverride('_method'));
 
 const user = require('./models/User.js');
 const session = require('express-session');
-const MongoStore = require('connect-mongo');
+const { MongoStore } = require('connect-mongo');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const passportLocalMongoose = require('passport-local-mongoose');
 const flash = require('connect-flash');
-// console.log(process.env.ATLASDB_URL);
 
-// const store = MongoStore.create({
-//     mongoUrl: process.env.Mongo_ATLAS,
-//     crypto: {
-//         secret: "keyboard cat"
-//     },
-//     touchAfter: 24 * 3600 // time period in seconds
-// });
+
+const store = MongoStore.create({
+    mongoUrl: process.env.ATLASDB_URL,
+    crypto: {
+        secret: process.env.SESSION_SECRET
+    },
+    touchAfter: 24 * 3600 // time period in seconds
+});
+
+store.on("error", () => {
+    console.log("ERROR in MONGO SESSION STORE", err);
+})
+
 const sessionOptions = {
-
-    secret: 'keyboard cat',
-    expire: 10 * 24 * 60 * 60 * 1000,
+    store,
+    secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+        expire: 10 * 24 * 60 * 60 * 1000,
+        maxAge: 10 * 24 * 60 * 60 * 1000,
+        httpOnly: true
+    }
 }
 
 // this is session middlware 
@@ -84,29 +93,23 @@ app.use('/user', User);
 app.use('/search', search);
 
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
-// const MONGO_URL = process.env.ATLASDB_URL;
 
-// main()
-//     .then(() => {
-//         console.log("MongoDB Connected");
-//     })
-//     .catch((err) => {
-//         console.log(err);
-//     });
+const MONGO_URL_ATLAS = process.env.ATLASDB_URL;
 
-// async function main() {
-//     await mongoose.connect(MONGO_URL);
-// }
-
-mongoose.connect(MONGO_URL)
+main()
     .then(() => {
-        console.log("Connected");
+        console.log("MongoDB Connected");
     })
-    .catch(err => {
-        console.error("FULL ERROR:");
-        console.error(err);
+    .catch((err) => {
+        console.log(err);
     });
+
+async function main() {
+    await mongoose.connect(MONGO_URL_ATLAS);
+}
+
+
+
 app.use((req, res) => {
     res.status(404).send('the path does not exist');
 });
